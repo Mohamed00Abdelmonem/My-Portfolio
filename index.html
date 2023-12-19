@@ -13,6 +13,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
+#visitor-count {
+    font-size: 25px;
+    font-weight: bold;
+    color: #e8e5e5;
+    background-color: #56a377;
+    padding: 50px;
+ 
+    text-align: center;
+    border-radius: 50px; /* Adjust the value to control the amount of curvature */
+}
   .social-icon-item {
   margin-right: 25px; /* Adjust the value to set the desired space between icons */
 }
@@ -109,6 +119,13 @@
                   <p>I'm a Freelancer.</p>
                   <p>I'm a Django Developer.</p>
                   
+
+
+
+
+
+
+
                 </div>
                 <p class="text-7 fw-500 text-white mb-2 mb-md-3">Welcome</p>
                 <h2 class="text-16 fw-600 text-white mb-2 mb-md-3"><span class="typed"></span></h2>
@@ -135,6 +152,9 @@
         
         <div class="row gy-5">
           <div class="col-lg-7 col-xl-8 text-center text-lg-start">
+          
+
+
             <h2 class="text-7 text-white fw-600 mb-3">I'm <span class="text-primary">Mohamed Abdelmonem,</span> a Web Developer</h2>
             <p class="text-white-50">Hi everyone! My name is Mohamed Mohamed Abdelmonem and I am currently studying Management Information Systems at M.E.T. I am a 20-year-old Django developer with a passion for building high-quality web applications.
 
@@ -148,6 +168,9 @@
                 <li><span class="fw-600 me-2">Name:</span>Mohamed Abdelmonem</li>
                 <li><span class="fw-600 me-2">Email:</span><a href="mmohamedabdelm@gmail.com">mmohamedabdelm@gmail.com</a></li>
                 <li><span class="fw-600 me-2">Age:</span>20</li>
+
+
+                
                 <li class="border-0"><span class="fw-600 me-2">From:</span>Mansoura , Egypt</li>
               </ul>
               <a href="https://drive.google.com/file/d/14jzFLPdRt1j38CDxIcIlwe3B0D0rvNLS/view?usp=drive_link" class="btn btn-primary rounded-pill">Download CV</a> </div>
@@ -189,6 +212,8 @@
     ============================================= -->
     <section id="services" class="section bg-dark-2">
       <div class="container"> 
+              <h2 id="visitor-count">Loading...</h2>
+
         <!-- Headingy -->
         <div class="position-relative d-flex text-center mb-5">
           <!-- <h2 class="text-24 text-white-50 opacity-1 text-uppercase fw-600 w-100 mb-0">Services</h2> -->
@@ -705,5 +730,38 @@
 <script src="js/switcher.min.js"></script> 
 <!-- Custom Script --> 
 <script src="js/theme.js"></script>
+
+
+
+  <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to get or initialize the visitor count from local storage
+            function getVisitorCount() {
+                let count = localStorage.getItem("visitorCount");
+
+                if (count === null) {
+                    count = 0;
+                } else {
+                    count = parseInt(count);
+                }
+
+                return count;
+            }
+
+            // Function to update and display the visitor count
+            function updateVisitorCount() {
+                let count = getVisitorCount();
+
+                count++;
+
+                localStorage.setItem("visitorCount", count);
+
+                document.getElementById("visitor-count").textContent = `Visitors :  ${count}`;
+            }
+
+            // Call the function to update and display the count
+            updateVisitorCount();
+        });
+    </script>
 </body>
 </html>
